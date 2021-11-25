@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function redirects()
+    {
+        
+        $userType = Auth::user()->userType;
+        $userType == 1 ? $view = 'layouts.admin'  :  $view = 'home';
+        return view($view);
+    }
     public function create()
     {
         //
