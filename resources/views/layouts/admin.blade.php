@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{config('app.name')}}</title>
+    {{-- @yield('styles') --}}
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendors/css/vendor.bundle.base.css') }}">
@@ -43,6 +44,8 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    
+   
     <script src="{{ asset('admin/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -61,6 +64,20 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{ asset('admin/js/dashboard.js') }}"></script>
+
+    
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('script')
+
+    <script >
+    var rms = {
+      routes: {
+        users: {
+          get: "{{ route('get.ajax.users') }}"
+        }
+      }
+    }
+    </script>
     <!-- End custom js for this page -->
   </body>
 </html>
