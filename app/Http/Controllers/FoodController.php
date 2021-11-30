@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
-use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,18 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // return $users = DB::table('users')->get();
-
-        return view('admin.users');
-    }
-
-    
-    public function getUsers(Request $req)
-    {
-         $users =User::all();
-        return Datatables::of($users)
-        ->addIndexColumn()
-        ->make(true);
+        return view('food.index');
     }
 
     /**
@@ -91,10 +77,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $req,$id)
+    public function destroy($id)
     {
-        
-        User::destroy($req->user_id);
-        return redirect()->back();
+        //
     }
 }

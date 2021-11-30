@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover" id="userTable">
+                        <table class="table table-bordered table-hover" id="foodTable">
                             <thead>
                                 <tr>
                                  
@@ -29,12 +29,13 @@
     </div>
 </div>
 {{--  Delete User Form --}}
-<form action="{{ route('users.destroy',['user'=>0]) }}" id="deleteUserForm" method="post">
+<form action="{{ route('foods.destroy',['user'=>0]) }}" id="deleteFoodForm" method="post">
     @csrf
     @method('delete')
-    <input type="hidden" name="user_id" id="userId" value="0">
+    <input type="hidden" name="food_id" id="foodId" value="0">
 </form>
 @endsection
 @section('script')
-<script src="{{ asset('js/pages/user.js') }}"></script>
+<script src="{{ asset('js/pages/food.js') }}"></script>
+
 @endsection

@@ -35,14 +35,15 @@ $(document).ready(function()
             }
         },
         columns: [
-            // {               
-            //     data: 'id',
-            //     name: 'id',
-            //     render: function render(data)
-            //     {
-            //         return data;
-            //     }
-            // },
+            {               
+                data: 'id',
+                name: 'id',
+                render: function render(data)
+                {
+                    return data;
+                }
+            },
+           
             {
                
                 data: 'name',
@@ -52,25 +53,6 @@ $(document).ready(function()
                     return data;
                 }
             },
-        //     {
-        // //     // data:'status_id',
-        // //     // name: 'status_id',
-        //     data: 'full_name',
-        //     name: 'full_name',
-        //     render: function render(data)
-        //     {
-        //         return data;
-        //     }
-        // },
-        // {
-            
-        //     data: 'username',
-        //     name: 'username',
-        //     render: function render(data)
-        //     {
-        //         return data;
-        //     }
-       // }
         {
             data: 'email',
             name: 'email',
@@ -79,30 +61,6 @@ $(document).ready(function()
                 return data;
             }
         },
-        // {
-           
-        //     data: 'gender',
-        //     name: 'gender',
-        //     render: function render(data){
-        //         return data;
-        //     }
-        // },
-        // {
-           
-        //     data: 'dob',
-        //     name: 'dob',
-        //     render: function render(data){
-        //         return data;
-        //     }
-        // },
-        // {
-           
-        //     data: 'eithnicity',
-        //     name: 'eithnicity',
-        //     render: function render(data){
-        //         return data;
-        //     }
-        // },
         {
             data: 'id',
             name: 'id',
