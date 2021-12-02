@@ -74,6 +74,9 @@
       routes: {
         users: {
           get: "{{ route('get.ajax.users') }}"
+        },
+        foods: {
+          get: "{{ route('get.ajax.foods') }}"
         }
       }
     }

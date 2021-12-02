@@ -1,5 +1,5 @@
-const userTable = $('#userTable');
-const deleteUserForm   = $('#deleteUserForm');
+const foodTable = $('#foodTable');
+const deleteFoodForm   = $('#deleteFoodForm');
 const userId = $('#userId');
 
 // $(document).on('click','.delete-user', function(){
@@ -7,28 +7,28 @@ const userId = $('#userId');
 //     // destroy($(this).data('id'));
 
 // });
-$(document).on('click','.delete-user',function(){
+$(document).on('click','.delete-food',function(){
     var id = $(this).data('id');
     console.log(id);
-    var check =  confirm('are you sure to delete this customer');
+    var check =  confirm('are you sure to delete this Food');
     if(check == true){
-        $('#userId').val(id);
-        deleteUserForm.submit();
+        $('#foodId').val(id);
+        deleteFoodForm.submit();
     }
 });
 
 $(document).ready(function()
 {
-    userTable.DataTable({
+    foodTable.DataTable({
         lenghtMenu: [[10,25,50,-1],['10','25','50','All']],
         order: [[0, "desc"]],
         language: {
-            searchPlaceholder: "Type Here User Name"
+            searchPlaceholder: "Search Food"
         },
         processing: true,
         serverSide: true,
         ajax: {
-            url: rms.routes.users.get,
+            url: rms.routes.foods.get,
             data: function data(d)
             {
                 d.status = 'all';
@@ -46,16 +46,25 @@ $(document).ready(function()
            
             {
                
-                data: 'name',
-                name: 'name',
+                data: 'title',
+                name: 'title',
                 render: function render(data)
                 {
                     return data;
                 }
             },
         {
-            data: 'email',
-            name: 'email',
+            data: 'description',
+            name: 'description',
+            render: function render(data)
+            {
+                return data;
+            }
+        },
+        {
+            
+            data: 'price',
+            name: 'price',
             render: function render(data)
             {
                 return data;
@@ -67,7 +76,7 @@ $(document).ready(function()
             orderable: true,
             searchable: true,
             render: function render(data) {
-              return '<a href="users/'+data+'/edit" class=" btn btn-primary btn-sm">Edit</a> <a href="javascript:void(0)" data-id="'+data+'" class="delete-user btn btn-danger  btn-sm">Delete</a>';
+              return '<a href="foods/'+data+'/edit" class=" btn btn-primary btn-sm">Edit</a> <a href="javascript:void(0)" data-id="'+data+'" class="delete-food btn btn-danger  btn-sm">Delete</a>';
             }
           }
         ]

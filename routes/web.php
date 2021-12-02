@@ -23,7 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 ////// User Or Admin
-Route::get('/redirects',[HomeController::class,'redirects']);
+Route::get('/admin',[HomeController::class,'redirects']);
 
 
 
@@ -33,5 +33,5 @@ Route::resource('users', AdminController::class);
 
 
 // Route for food
-
+Route::get('ajaxFood',[FoodController::class,'getFoods'])->name('get.ajax.foods');
 Route::resource('foods',FoodController::class);
