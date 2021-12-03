@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Food;
+use App\Models\Reservation;
+use CreateReservationsTable;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-     $foods = Food::get();   
-        return view('home',compact('foods'));
+        return view('reservation.index');
     }
 
     /**
@@ -24,14 +23,6 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function redirects()
-    {
-        $foods = Food::get();
-        $userType = Auth::user()->userType;
-        $userType == 1 ? $view = 'layouts.admin'  :  $view = 'home';
-        return view($view,compact('foods'));
-    }
     public function create()
     {
         //
@@ -45,16 +36,29 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'phone'=>'required'
+        ]);
+        $reservations = new Reservation();
+        $reservations->name = $request->name;
+        $reservations->email = $request->email;
+        $reservations->phone = $request->phone;
+        $reservations->guest = $request->guest;
+        $reservations->date = $request->date;
+        $reservations->time = $request->time;
+        $reservations->message = $request->message;
+        $reservations->save();
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Reservation $reservation)
     {
         //
     }
@@ -62,10 +66,10 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Reservation $reservation)
     {
         //
     }
@@ -74,10 +78,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Reservation $reservation)
     {
         //
     }
@@ -85,10 +89,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Reservation $reservation)
     {
         //
     }

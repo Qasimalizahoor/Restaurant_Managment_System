@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,7 @@ Route::resource('users', AdminController::class);
 // Route for food
 Route::get('ajaxFood',[FoodController::class,'getFoods'])->name('get.ajax.foods');
 Route::resource('foods',FoodController::class);
+
+
+// Route for Reservation
+Route::resource('reservations',ReservationController::class);
