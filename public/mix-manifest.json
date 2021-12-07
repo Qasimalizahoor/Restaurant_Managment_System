@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/pages/user.js": "/js/pages/user.js",
     "/js/pages/food.js": "/js/pages/food.js",
+    "/js/pages/reservation.js": "/js/pages/reservation.js",
+    "/js/pages/chef.js": "/js/pages/chef.js",
     "/css/app.css": "/css/app.css"
 }

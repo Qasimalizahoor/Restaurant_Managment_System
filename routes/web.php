@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FoodController;
-use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChefController;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,9 @@ Route::resource('foods',FoodController::class);
 
 
 // Route for Reservation
+Route::get('ajaxReservation',[ReservationController::class,'getReservations'])->name('get.ajax.reservations');
 Route::resource('reservations',ReservationController::class);
+
+//Chef Route
+Route::get('ajaxChef',[ChefController::class,'getChefs'])->name('get.ajax.chefs');
+Route::resource('chefs', ChefController::class);

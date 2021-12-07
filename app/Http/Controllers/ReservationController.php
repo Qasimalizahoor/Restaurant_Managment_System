@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
-use CreateReservationsTable;
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -15,6 +15,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
+
         return view('reservation.index');
     }
 
@@ -23,6 +24,13 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getReservations()
+    {
+        $reservations = Reservation::all();
+        return Datatables::of($reservations)
+        ->addIndexColumn()
+        ->make(true);
+    }
     public function create()
     {
         //

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chef;
 use App\Models\Food;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-     $foods = Food::get();   
-        return view('home',compact('foods'));
+     $foods = Food::get();  
+     $chefs = Chef::get(); 
+    
+        return view('home',compact(['foods','chefs']));
     }
 
     /**

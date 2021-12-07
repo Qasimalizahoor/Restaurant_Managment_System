@@ -77,6 +77,12 @@
         },
         foods: {
           get: "{{ route('get.ajax.foods') }}"
+        },
+        reservations: {
+          get: "{{ route('get.ajax.reservations') }}"
+        },
+        chefs: {
+          get: "{{ route('get.ajax.chefs') }}"
         }
       }
     }
