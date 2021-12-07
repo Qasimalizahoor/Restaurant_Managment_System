@@ -7,20 +7,27 @@
                         <h6>Contact Us</h6>
                         <h2>Here You Can Make A Reservation Or Just walkin to our cafe</h2>
                     </div>
-                    <p>Donec pretium est orci, non vulputate arcu hendrerit a. Fusce a eleifend riqsie, namei sollicitudin urna diam, sed commodo purus porta ut.</p>
+                    <p>If you want to reserve your Table or Food. So fill this form correctly and make sure you will be there.<br>
+                      Thanks
+                    </p>
                     <div class="row">
+                     
                         <div class="col-lg-6">
                             <div class="phone">
                                 <i class="fa fa-phone"></i>
                                 <h4>Phone Numbers</h4>
-                                <span><a href="#">080-090-0990</a><br><a href="#">080-090-0880</a></span>
+                                @foreach ($companies as $company )
+                                <span>{{ $company->contact }}<br>
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="message">
                                 <i class="fa fa-envelope"></i>
                                 <h4>Emails</h4>
-                                <span><a href="#">hello@company.com</a><br><a href="#">info@company.com</a></span>
+                                @foreach ($companies as $company)
+                                <span>{{ $company->email }}<br>
+                                @endforeach
                             </div>
                         </div>
                     </div>

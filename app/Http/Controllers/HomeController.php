@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Chef;
 use App\Models\Food;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +19,9 @@ class HomeController extends Controller
     {
      $foods = Food::get();  
      $chefs = Chef::get(); 
+     $companies = Company::get();
     
-        return view('home',compact(['foods','chefs']));
+        return view('home',compact(['foods','chefs','companies']));
     }
 
     /**
@@ -31,9 +33,11 @@ class HomeController extends Controller
     public function redirects()
     {
         $foods = Food::get();
+        $chefs = Chef::get();
+        $companies = Company::get();
         $userType = Auth::user()->userType;
         $userType == 1 ? $view = 'layouts.admin'  :  $view = 'home';
-        return view($view,compact('foods'));
+        return view($view,compact(['foods','chefs','companies']));
     }
     public function create()
     {
